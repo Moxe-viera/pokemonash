@@ -1,0 +1,38 @@
+page-login {
+    ion-content.login-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      background-color: #f0f0f5;
+    }
+  
+   
+
+  
+  
+    ion-item {
+      margin-bottom: 15px;
+    }
+  
+    ion-button {
+      --background: #3880ff;
+      --background-hover: #4c8dff;
+      --background-focused: #4c8dff;
+      --background-activated: #4c8dff;
+      --border-radius: 4px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+  
+    ion-label {
+      font-size: 16px;
+      color: #333;
+    }
+  
+    ion-input {
+      --padding-start: 10px;
+      --padding-end: 10px;
+    }
+  }
+  

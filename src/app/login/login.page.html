@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="text-align: center;font-size: 24px;" >Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding login-content">
+  <div class="login-container">
+    <img src="assets/icon/pokebola.jpg" alt="Logo" class="login-logo">
+    <p style="font-weight: bold; font-size: 24px;text-align: center;">Lista de Pokémon</p>
+    <form (submit)="onLogin()">
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="email" [(ngModel)]="loginData.email" name="email" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" [(ngModel)]="loginData.password" name="password" required></ion-input>
+      </ion-item>
+      <ion-button expand="full" type="submit">Login</ion-button>
+      <ion-button expand="full" [href]="'/cadastro/'" >Cadastra-se</ion-button>
+    </form>
+  </div>
+</ion-content>

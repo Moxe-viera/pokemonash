@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="text-align: center;font-size: 24px;" >Cadastro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding login-content">
+  <div class="cadastro-container">
+    <img src="assets/icon/pokebola.jpg" alt="Logo" class="cadastro-logo">
+    <p style="font-weight: bold; font-size: 24px;text-align: center;">Lista de Pokémon</p>
+
+    
+    <ion-item lines="none">
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input aria-label="Sobrenome" type="name" minlength="8"  maxlength="120"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label position="floating">Sobrenome</ion-label>
+      <ion-input aria-label="Sobrenome" type="name" minlength="8"  maxlength="120"></ion-input>
+    </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="email"  name="email" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Senha</ion-label>
+        <ion-input type="password" name="password" required></ion-input>
+      </ion-item>
+      <ion-button expand="full" [href]="'/login/'" >Cadastra-se</ion-button>
+      <ion-button expand="full" > Esqueci minha senha</ion-button>
+  </div>
+</ion-content>
