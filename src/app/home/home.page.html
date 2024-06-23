@@ -1,36 +1,62 @@
-<ion-header [translucent]="true">
 
-    <ion-toolbar color="white">
-       <ion-title color="dark">Conheça os Pokémon </ion-title>
+<ion-menu contentId="main-content">
+  <ion-header>
+      <ion-toolbar>
+      <ion-title>Menu</ion-title>
+      </ion-toolbar>
+  </ion-header>
+
+  <ion-content >
+    <div class="NavMenu">
+
+      <ion-list>
+          <ion-item (click)="redirectToAbertura()">
+          <ion-label>Início</ion-label>
+          </ion-item>
+      </ion-list>
+
+      
+
+    </div>
+  </ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Pokémon Cards</ion-title>
     </ion-toolbar>
-    <ion-button expand="block" [href]="'/login/'" >Sair</ion-button>
-
-</ion-header>
-
+  </ion-header>
 
 <ion-content [fullscreen]="true">
+  <div class="boxImage">
+    <img src="/assets/image/pokemon.jpg"/>
+  </div>
 
-  <!--  <div class="search">
-      <ion-input color="medium" id="input" type="search" label="Digite o nome do Pokémon" label-placement="floating" fill="outline" placeholder="Pesquisar..." (ionInput)="searchPokemon($event)"></ion-input>
-    </div>
--->
+  <div class="search">
+    <ion-input id="input" type="search" label="Qual Pokémon vamos usar ?" label-placement="floating" fill="outline" placeholder="Pesquisar..." (ionInput)="searchPokemon($event)"></ion-input>
+  </div>
+
     <div *ngFor="let item of items; let index = index">
-         <app-card
-          [cardId]="item.id"
-          [cardName]="item.name"
-          [cardImage]="item.image"
-          [cardAttack]="item.attack"
-          [cardDefense]="item.defense"
-          [cardHp]="item.hp"
-          [cardSpecialAttack]="item.specialAttack"
-          [cardSpecialDefense]="item.specialDefense"
-          [cardTypes]="item.types"
-          >
-         </app-card>
+
+      <app-card
+        [cardId]="item.id"
+        [cardName]="item.name"
+        [cardImage]="item.image"
+        [cardAttack]="item.attack"
+        [cardDefense]="item.defense"
+        [cardHp]="item.hp"
+        [cardSpecialAttack]="item.specialAttack"
+        [cardSpecialDefense]="item.specialDefense"
+        [cardTypes]="item.types">
+      </app-card>
+      
     </div>
 
     <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
     <ion-infinite-scroll-content></ion-infinite-scroll-content>
     </ion-infinite-scroll>
-
+  
 </ion-content>

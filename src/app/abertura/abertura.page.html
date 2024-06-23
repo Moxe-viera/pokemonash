@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="danger">
+    <ion-title>Lista de Pokémon</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+ <ion-content [fullscreen]="true">
+
+  <div class="boxImageAbertura">
+    <img src="/assets/image/pokebola.jpg"/>
+  </div>
+  
+  <!-- <div class="boxImageBackground"></div> -->
+
+  <div class="btns">
+    <ion-button class="btn" expand="full" (click)="redirectToLogin()">Vamos agora Pokémons</ion-button> 
+    <ion-button class="btn" color="medium" expand="full" (click)="redirectToCadastro()"> não tenho cadastro</ion-button>
+  </div>
+  
+  
+</ion-content>

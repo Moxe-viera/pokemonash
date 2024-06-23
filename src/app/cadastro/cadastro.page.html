@@ -1,26 +1,46 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title style="text-align: center;font-size: 24px;" >Cadastro</ion-title>
+
+<ion-header [translucent]="true">
+  <ion-toolbar color="danger">
+    <ion-title>Realizar Cadastro</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding login-content">
-  <div class="cadastro-container">
-    <img src="assets/icon/pokebola.jpg" alt="Logo" class="cadastro-logo">
-    <p style="font-weight: bold; font-size: 24px;text-align: center;">Lista de Pokémon</p>
+<ion-content>
+  <div class="boxImage">
+    <img src="/assets/image/pokebola.jpg" />
+  </div>
 
+  <div class="wellcome">
+    <h3>Lista de Pokémons</h3>
+    <p>
+      Cadastra-se e conheça os Pokémons
+    </p>
+  </div>
+
+  <div class="formulario">
     
-    <form (submit)="cadastoUsuario()">
-      <ion-item>
-        <ion-label position="floating">Email</ion-label>
-        <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">Password</ion-label>
-        <ion-input type="password" [(ngModel)]="password" name="password" required></ion-input>
-      </ion-item>
-      <ion-button expand="full" type="submit">Cadastrar</ion-button>
-     
+    <form>
+      <ion-input
+        class="input"
+        label="Email"
+        label-placement="floating"
+        placeholder="Digite seu email"
+        name="email"
+        [(ngModel)]="user.email"
+      ></ion-input>
+      <ion-input
+        class="input"
+        label="Senha"
+        type="password"
+        label-placement="floating"
+        placeholder="Digite sua senha"
+        name="password"
+        [(ngModel)]="user.password"
+      ></ion-input>
+      <div class="btns">
+        <ion-button class="btn" expand="full" (click)="handleCreateUser(user)">Salvar</ion-button>
+      </div>
     </form>
   </div>
 </ion-content>
+

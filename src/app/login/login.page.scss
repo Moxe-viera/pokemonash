@@ -1,52 +1,66 @@
-page-login {
-    ion-content.login-content {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-      background-color: #f0f0f5;
-    }
-  
-    .login-container {
-      width: 100%;
-      max-width: 400px;
-      padding: 20px;
-      background: white;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-      text-align: center;
-    }
-  
-   
+.boxImage {
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
 
-    .login-logo {
-      width: 100px;
-      height: 100px;
-      margin-bottom: 20px;
-    }
-  
-    ion-item {
-      margin-bottom: 15px;
-    }
-  
-    ion-button {
-      --background: #3880ff;
-      --background-hover: #4c8dff;
-      --background-focused: #4c8dff;
-      --background-activated: #4c8dff;
-      --border-radius: 4px;
-      font-size: 18px;
-      font-weight: 600;
-    }
-  
-    ion-label {
-      font-size: 16px;
-      color: #333;
-    }
-  
-    ion-input {
-      --padding-start: 10px;
-      --padding-end: 10px;
-    }
-  }
-  
+.wellcome {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.wellcome h3 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #333;
+  padding: 1rem 0 0 0;
+  text-align: center;
+
+}
+
+.wellcome p {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #333;
+  margin: 1rem 0;
+  text-align: center;
+
+}
+
+.formulario {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.formulario form {
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.input {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.btns {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.btn {
+  width: 100%;
+}

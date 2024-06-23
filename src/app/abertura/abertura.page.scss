@@ -1,0 +1,55 @@
+
+
+.boxImageAbertura {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    width: 100%;
+    object-fit: cover;
+    padding: 2rem 0;
+}
+
+.boxImageBackground {
+   background-image: url('../../assets/image/pokeball.png');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    padding: 1rem 0 2rem 0;
+}
+
+.BoxImagePokemon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  width: 100%;
+  object-fit: cover;
+  padding: 1rem 0 2rem 0;
+}
+
+.btns {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem 0;
+}
+
+.btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 1rem 0 1rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+}

@@ -1,46 +1,40 @@
-import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { LoadingController, ToastController } from '@ionic/angular';
+import { Component } from '@angular/core';
+import axios from 'axios';
+import { AlertController, NavController } from '@ionic/angular';
+import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.page.html',
   styleUrls: ['./cadastro.page.scss'],
 })
-export class CadastroPage implements OnInit {
+export class CadastroPage {
+  user = { email: '', password: '' ,name: ''};
 
-  email:any=''
-  password:any=''
+  constructor(public alertController: AlertController, private navCtrl: NavController) {}
 
-
-  constructor( 
-    private afAuth: AngularFireAuth,
-    private toastController: ToastController,
-    private loadingController: LoadingController
-  ) { }
-
-  ngOnInit() {
-  }
-  async cadastoUsuario(){
-    const loading = await this.loadingController.create({
-      message: 'Carregando...',
-    });
-    await loading.present();
-    try {
-      this.afAuth.createUserWithEmailAndPassword(this.email, this.password)
-      await loading.dismiss();
-      this.showToast('CONTA CADASTRADA');
-      window.location.href = '/login';
-    } catch (error) {
-      await loading.dismiss();
-      this.showToast('ERRO AO CADASTRAR');
+  async handleCreateUser(user: { email: string; password: string }) {
+    const auth = getAuth();
+    await
+    createUserWithEmailAndPassword(auth, user.email, user.password).then(() => {
+      this.showAlert('Sucesso', 'Usuário criado', 'Usuário criado com sucesso!');
+      this.navCtrl.navigateForward('login');
+    }).catch((error) => {
+      this.showAlert('Erro', 'Erro ao criar usuário', error.message);
     }
+    );
+
+
+    
   }
-  async showToast(message: string) {
-    const toast = await this.toastController.create({
+
+  async showAlert(header: string, subHeader: string, message: string) {
+    const alert = await this.alertController.create({
+      header,
+      subHeader,
       message,
-      duration: 2000
+      buttons: ['OK'],
     });
-    toast.present();
+    await alert.present();
   }
 }

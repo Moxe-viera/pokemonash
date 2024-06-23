@@ -1,6 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { AlertController, NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { LoadingController, NavController, ToastController } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
+import { AutenticacaoService } from 'src/app/usuario/autenticacao.service';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
 @Component({
   selector: 'app-login',
@@ -8,45 +12,40 @@ import { LoadingController, NavController, ToastController } from '@ionic/angula
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage {
-  email: string = '';
-  password: string = '';
-  isAuthenticated: boolean = false;
+  user = { email: '', senha: '' };
 
   constructor(
-    private navCtrl: NavController,
-    private afAuth: AngularFireAuth,
-    private toastController: ToastController,
-    private loadingController: LoadingController
-  ) { }
+    public alertController: AlertController,
+    public router: Router,
+    public toastController: ToastController,
+    @Inject(AutenticacaoService) public autenticacaoService: AutenticacaoService,
+    public angularFireAuth: AngularFireAuth,
+    public navCtrl: NavController
+  ) {}
 
-  async login() {
-    const loading = await this.loadingController.create({
-      message: 'Carregando...',
-    });
-    await loading.present();
+  async handleLogin() {
+    const auth = getAuth();
     try {
-      const user = await this.afAuth.signInWithEmailAndPassword(this.email, this.password);
-      //console.log(user);
-      await loading.dismiss();
-      this.isAuthenticated = true;
-      this.showToast('ESTAMOS CONECTADOS');
-      window.location.href = '/home';
-    } catch (error) {
-      await loading.dismiss();
-      this.showToast('NÃO ESTAMOS CONECTADOS');
+
+      await signInWithEmailAndPassword(auth, this.user.email, this.user.senha).then(() => {
+        this.navCtrl.navigateForward('home');
+      });
+    } catch (error:any) {
+      this.showAlert('Erro', 'Erro ao logar', error.message);
     }
   }
-  async logout() {
-    await this.afAuth.signOut();
-    this.isAuthenticated = false;
-    this.showToast('DESCONECTADOS COM SUCESSO');
+
+  async recuperar() {
+    this.router.navigateByUrl('recuperar');
   }
-  async showToast(message: string) {
-    const toast = await this.toastController.create({
+
+  async showAlert(header: string, subHeader: string, message: string) {
+    const alert = await this.alertController.create({
+      header,
+      subHeader,
       message,
-      duration: 2000
+      buttons: ['OK'],
     });
-    toast.present();
+    await alert.present();
   }
 }
-

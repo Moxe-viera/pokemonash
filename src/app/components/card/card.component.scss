@@ -2,59 +2,59 @@ ion-content {
   --background: transparent;
 }
 .grass-background{
-  background-color: #2fee29; 
+  background-color: #56d854; 
 }
 
 .fire-background {
-  background-color: #dd7e25; 
+  background-color: #da791f; 
 }
 
 .water-background {
-  background-color: #1285e9; 
+  background-color: #327ec0; 
 }
 
 .electric-background {
-  background-color: #e0ded5; 
+  background-color: #e6b41e; 
 }
 
 .ice-background {
-  background-color: #98d8d8; 
+  background-color: #43c0c0; 
 }
 
 .psychic-background {
-  background-color: #f85888; 
+  background-color: #b31343; 
 }
 
 .ghost-background {
-  background-color: #662dc2; 
+  background-color: #6324c7; 
 }
 
 .dark-background {
-  background-color: #705848;
+  background-color: #9e5625;
 }
 
 .fairy-background {
-  background-color: #ee99ac;
+  background-color: #bb1e40;
 }
 
 .dragon-background {
-  background-color: #7038f8; 
+  background-color: #4d26aa; 
 }
 
 .normal-background {
-  background-color: #cf33dd;
+  background-color: #0e8286;
 }
 
 .fighting-background {
-  background-color: #EB4971; 
+  background-color: #c40d3b; 
 }
 
 .poison-background {
-  background-color: #d6d323; 
+  background-color: #da19b9; 
 }
 
 .ground-background {
-  background-color: #F78551; 
+  background-color: #cf5a24; 
 }
 
 .cor-btn {
@@ -83,6 +83,7 @@ ion-content {
 
   ion-card-title{
     text-transform: capitalize;
+    
   }
 }
 
@@ -119,5 +120,9 @@ ion-card-title {
 
   p {
     color: #fff;
+  }
+
+  .bg{
+    background: linear-gradient(#c40d3b top 50%, #56d854 let 40%);
   }
 }

@@ -38,7 +38,6 @@ export class InformacaoPage implements OnInit {
 
 
   navigateBack() {
-    // Utilize o método back para voltar para a página anterior
     this.router.navigate(['../'], { relativeTo: this.route });
   }
 

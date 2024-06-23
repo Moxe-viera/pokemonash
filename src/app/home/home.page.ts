@@ -1,5 +1,6 @@
 import { ApiService, Pokemon } from './../services/api.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { InfiniteScrollCustomEvent } from '@ionic/angular';
 import { Subscribable } from 'rxjs';
@@ -14,7 +15,7 @@ export class HomePage implements OnInit {
   items: Pokemon[] = []; 
   itemsPromise: Observable<unknown> | Subscribable<unknown> | Promise<unknown> | undefined;
 
-  constructor(public apiSevice: ApiService) {}
+  constructor(public apiSevice: ApiService, private router: Router) {}
 
   ngOnInit() {
     this.loadPokemons();
@@ -44,9 +45,8 @@ export class HomePage implements OnInit {
   // }
 
   async searchPokemon(event: any) {
-    const searchTerm = event.target.value.trim().toLowerCase(); // Convert to lowercase for easier comparison
+    const searchTerm = event.target.value.trim().toLowerCase(); 
     if (searchTerm !== '') {
-      // Filter the pokemons whose name contains the search term
       const pokemon = await this.apiSevice.getPokemonByName(searchTerm);
       if (pokemon) {
         this.items = [pokemon];
@@ -57,6 +57,10 @@ export class HomePage implements OnInit {
       // If the search field is empty, reload all pokemons
       this.loadPokemons();
     }
+  }
+
+  redirectToAbertura() {
+    this.router.navigateByUrl('abertura');
   }
   
 
